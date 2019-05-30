@@ -58,7 +58,7 @@ public class ProjectIntegrationTest {
 		.contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
        .andExpect(jsonPath("$[0].projectId", is(1)))
-        .andExpect(jsonPath("$[1].projectId", is(3)))
+        .andExpect(jsonPath("$[1].projectId", is(2)))
         .andDo(print());		
 	}
 	
@@ -87,11 +87,11 @@ public class ProjectIntegrationTest {
 	public void updateProjectTest() throws Exception{
 		
 		getProject2().setProject("Updated Project 2");
-		mockMvc.perform(put("/project/updateProject/3")
+		mockMvc.perform(put("/project/updateProject/2")
 		.content(asJsonString(getProject2()))
 		.contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
-       .andExpect(jsonPath("projectId", is(3)))
+       .andExpect(jsonPath("projectId", is(2)))
         .andDo(print());		
 	}
 	

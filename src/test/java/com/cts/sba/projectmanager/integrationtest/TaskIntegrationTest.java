@@ -55,7 +55,7 @@ public class TaskIntegrationTest {
 		.contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
        .andExpect(jsonPath("$[0].taskId", is(1)))
-        .andExpect(jsonPath("$[1].taskId", is(3)))
+        .andExpect(jsonPath("$[1].taskId", is(2)))
         .andDo(print());		
 	}
 	
@@ -84,11 +84,11 @@ public class TaskIntegrationTest {
 	public void updateTaskTest() throws Exception{
 		
 		getTask2().setTaskName("Updated Task 2");
-		mockMvc.perform(put("/task/updateTask/3")
+		mockMvc.perform(put("/task/updateTask/2")
 		.content(asJsonString(getTask2()))
 		.contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
-       .andExpect(jsonPath("taskId", is(3)))
+       .andExpect(jsonPath("taskId", is(2)))
         .andDo(print());		
 	}
 	

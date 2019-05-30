@@ -51,7 +51,7 @@ public class UserIntegrationTest {
 		.contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
        .andExpect(jsonPath("$[0].userId", is(1)))
-        .andExpect(jsonPath("$[1].userId", is(5)))
+        .andExpect(jsonPath("$[1].userId", is(2)))
         .andDo(print());		
 	}
 	
@@ -80,11 +80,11 @@ public class UserIntegrationTest {
 	public void updateUserTest() throws Exception{
 		
 		getUser2().setFirstName("Updated User 2");
-		mockMvc.perform(put("/user/updateUser/3")
+		mockMvc.perform(put("/user/updateUser/2")
 		.content(asJsonString(getUser2()))
 		.contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
-       .andExpect(jsonPath("userId", is(3)))
+       .andExpect(jsonPath("userId", is(2)))
         .andDo(print());		
 	}
 	
