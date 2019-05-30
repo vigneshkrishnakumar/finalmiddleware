@@ -44,7 +44,7 @@ public class UserController {
 		User newUser = null;
 		try {
 			newUser = projectManagerService.addUser(user);
-			logger.info(messageSource.getMessage("task.added", new Object[0], null));
+			logger.info(messageSource.getMessage("user.added", new Object[0], null));
 		} catch(Exception e) {
 			e.printStackTrace();
 			logger.error(e.getMessage(), e);
@@ -66,7 +66,7 @@ public class UserController {
 				dbUser.setUserProjectId(user.getUserProjectId());
 				dbUser.setUserTaskId(user.getUserTaskId());
 				dbUser = projectManagerService.addUser(dbUser);
-				logger.info(messageSource.getMessage("task.updated", new Object[0], Locale.US));
+				logger.info(messageSource.getMessage("user.updated", new Object[0], Locale.US));
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -81,7 +81,7 @@ public class UserController {
 		List<User> userList = null;
 		try {
 			userList = projectManagerService.fetchUsers();
-			logger.info(messageSource.getMessage("tasks.fetched", new Object[0], Locale.US));
+			logger.info(messageSource.getMessage("users.fetched", new Object[0], Locale.US));
 		} catch(Exception e) {
 			e.printStackTrace();
 			logger.error(e.getMessage(), e);
@@ -95,7 +95,7 @@ public class UserController {
 		User user = null;
 		try {
 			user = projectManagerService.getUser(userId);
-			logger.info(messageSource.getMessage("task.fetched", new Object[0], Locale.US));
+			logger.info(messageSource.getMessage("user.fetched", new Object[0], Locale.US));
 		} catch(Exception e) {
 			e.printStackTrace();
 			logger.error(e.getMessage(), e);
@@ -112,7 +112,7 @@ public class UserController {
 			user = projectManagerService.getUser(userId);
 			projectManagerService.deleteUser(user);
 			returnCode = 200;
-			logger.info(messageSource.getMessage("task.fetched", new Object[0], Locale.US));
+			logger.info(messageSource.getMessage("user.fetched", new Object[0], Locale.US));
 		} catch(Exception e) {
 			e.printStackTrace();
 			logger.error(e.getMessage(), e);

@@ -44,7 +44,7 @@ public class ParentTaskController {
 		ParentTask newParentTask = null;
 		try {
 			newParentTask = projectManagerService.addParentTask(task);
-			logger.info(messageSource.getMessage("task.added", new Object[0], null));
+			logger.info(messageSource.getMessage("parent.added", new Object[0], null));
 		} catch(Exception e) {
 			e.printStackTrace();
 			logger.error(e.getMessage(), e);
@@ -62,7 +62,7 @@ public class ParentTaskController {
 			if(dbParentTask != null) {
 				dbParentTask.setParentTask(parentTask.getParentTask());
 				dbParentTask = projectManagerService.addParentTask(dbParentTask);
-				logger.info(messageSource.getMessage("task.updated", new Object[0], Locale.US));
+				logger.info(messageSource.getMessage("parent.updated", new Object[0], Locale.US));
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -77,7 +77,7 @@ public class ParentTaskController {
 		List<ParentTask> parentList = null;
 		try {
 			parentList = projectManagerService.fetchParentTasks();
-			logger.info(messageSource.getMessage("tasks.fetched", new Object[0], Locale.US));
+			logger.info(messageSource.getMessage("parents.fetched", new Object[0], Locale.US));
 		} catch(Exception e) {
 			e.printStackTrace();
 			logger.error(e.getMessage(), e);
@@ -91,7 +91,7 @@ public class ParentTaskController {
 		ParentTask parentTask = null;
 		try {
 			parentTask = projectManagerService.getParentTask(parentId);
-			logger.info(messageSource.getMessage("task.fetched", new Object[0], Locale.US));
+			logger.info(messageSource.getMessage("parent.fetched", new Object[0], Locale.US));
 		} catch(Exception e) {
 			e.printStackTrace();
 			logger.error(e.getMessage(), e);

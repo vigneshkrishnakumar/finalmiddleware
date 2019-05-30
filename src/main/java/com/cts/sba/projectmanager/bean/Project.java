@@ -36,11 +36,9 @@ public class Project implements Serializable {
     @Size(max = 100)
 	@Column(name = "Project")
 	private String project;
-	@NotNull
 	@Column(name = "Start_Date")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date startDate;
-	@NotNull
 	@Column(name = "End_Date")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date endDate;
